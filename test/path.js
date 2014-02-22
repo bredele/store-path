@@ -26,12 +26,24 @@ describe("Path middleware", function() {
   });
 
   describe("Getter", function() {
+    it("should get store value", function() {
+      assert.deepEqual(store.path('country'), {
+        france: 'paris',
+        canada : 'edmonton'
+      });
+    });
+    
     it('should get store value from path', function() {
       assert.equal(store.path('country.canada'), 'edmonton');
     });
   });
   
   describe("Setter", function() {
+    it('should set store value', function() {
+      store.path('country', 'england');
+      assert.equal(store.get('country'), 'england');
+    });
+
     it('should set store value from path', function() {
       store.path('country.canada.city', 'calgary');
       store.path('country.france', 'strasbourg');
@@ -51,6 +63,18 @@ describe("Path middleware", function() {
       assert.equal(names[2][0], 'michelle');
     });
     
+  });
+  
+  describe("Change", function() {
+    it('should listen changes on store attribute', function() {
+      var changed = false;
+      store.change('country', function() {
+        changed = !changed;
+      });
+      store.path('country', 'us');
+      debugger
+      assert.equal(changed, true);
+    });
   });
   
   

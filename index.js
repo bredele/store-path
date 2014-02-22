@@ -37,12 +37,13 @@ module.exports = function(store) {
 				}
 				cache = cache[prop];
 			}
-			cache[path[h]] = val;
-			store.set(path[0], attr);
+
+			cache[path[j]] = val;
+			//TODO:L refactor, if no '.' just set with val
+			store.set(path[0], h === 0 ? val : attr);
 		}
 	};
 
-	store.change = function() {
-
+	store.change = function(name, fn, scope) {
 	};
 };
