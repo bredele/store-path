@@ -1,0 +1,14 @@
+{
+  "name": "store-path",
+  "repo": "bredele/store-path",
+  "description": "Store middleware to get/set and listen changes on path",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
