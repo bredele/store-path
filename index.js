@@ -44,6 +44,24 @@ module.exports = function(store) {
 		}
 	};
 
+
+	/**
+	 * Listen changes.
+	 * example:
+	 *
+	 *    store.change('country.canada', fn);
+	 *    
+	 * @param  {String}   name  
+	 * @param  {Function} fn    
+	 * @param  {Object}   scope 
+	 * @api public
+	 */
+	
 	store.change = function(name, fn, scope) {
+		var path = name.split('.');
+		this.on('change ' + path[0], function(val, prev) {
+			fn.call(scope);
+		});
 	};
+
 };
