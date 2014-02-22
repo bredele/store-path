@@ -9,7 +9,8 @@ describe("Path middleware", function() {
       country : {
         france: 'paris',
         canada : 'edmonton'
-      }
+      },
+      names: ['olivier', 'amy', ['jean', 'daniel']]
     });
     store.use(path);
   });
@@ -39,6 +40,16 @@ describe("Path middleware", function() {
       assert.equal(country.canada.city, 'calgary');
       assert.equal(country.france, 'strasbourg');
     });
+
+    it("should set array from path", function() {
+      store.path('names.0', 'nicolas');
+      store.path('names.2.0', 'michelle');
+
+      var names = store.get('names');
+      assert.equal(names[0], 'nicolas');
+      assert.equal(names[2][0], 'michelle');
+    });
+    
   });
   
   
