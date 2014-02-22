@@ -5,7 +5,11 @@ var path = require('store-path'),
 describe("Path middleware", function() {
   var store = null;
   beforeEach(function() {
-    store = new Store();
+    store = new Store({
+      country : {
+        canada : 'awesome'
+      }
+    });
     store.use(path);
   });
   
@@ -20,14 +24,15 @@ describe("Path middleware", function() {
   });
 
   describe("Getter", function() {
-    it('should get store value with path', function() {
-      store.reset({
-        country : {
-          canada : 'awesome'
-        }
-      });
-
+    it('should get store value from path', function() {
       assert.equal(store.path('country.canada'), 'awesome');
+    });
+  });
+  
+  describe("Setter", function() {
+    it('should set store value from path', function() {
+      store.path('country.canada', 'amazing');
+      assert.equal(store.get('country').canada, 'amazing');
     });
   });
   
