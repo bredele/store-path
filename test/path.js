@@ -37,6 +37,7 @@ describe("Path middleware", function() {
       store.path('country.france', 'strasbourg');
 
       var country = store.get('country');
+      debugger
       assert.equal(country.canada.city, 'calgary');
       assert.equal(country.france, 'strasbourg');
     });

@@ -6,19 +6,29 @@ var clone = require('clone');
 
 module.exports = function(store) {
 
+	/**
+	 * Set and get path.
+	 * example:
+	 *   store.path('country.canada'); //get
+	 *   store.path('country.canada', 'france');
+	 *   store.path('name.3.2', 'olivier'); //works with arrys
+	 *   
+	 * @param  {String} name 
+	 * @param  {Any} val  
+	 * @api public
+	 */
+	
 	store.path = function(name, val) {
-		if(!val) {
-			var path = name.split('.'),
-			    attr = store.get(path[0]);
+		var path = name.split('.'),
+				attr = clone(store.get(path[0]));
 
+		if(!val) {
 			for(var i = 1, l = path.length; i < l; i++) {
 				attr = attr[path[i]];
 			}
 			return attr;
 		} else {
-			var path = name.split('.'),
-					attr = clone(store.get(path[0])),
-					cache = attr;
+			var cache = attr;
 
 			for(var j = 1, h = path.length - 1; j < h; j++) {
 				var prop = path[j];
