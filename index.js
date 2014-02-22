@@ -57,11 +57,11 @@ module.exports = function(store) {
 	 * @api public
 	 */
 	
-	store.change = function(name, fn, scope) {
-		var path = name.split('.');
-		this.on('change ' + path[0], function(val, prev) {
-			fn.call(scope);
-		});
-	};
+	// store.change = function(name, fn, scope) {
+	// 	var path = name.split('.');
+	// 	this.on('change ' + path[0], function(val, prev) {
+	// 		fn.call(scope);
+	// 	});
+	// };
 
 };

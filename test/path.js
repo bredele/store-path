@@ -65,17 +65,22 @@ describe("Path middleware", function() {
     
   });
   
-  describe("Change", function() {
-    it('should listen changes on store attribute', function() {
-      var changed = false;
-      store.change('country', function() {
-        changed = !changed;
-      });
-      store.path('country', 'us');
-      debugger
-      assert.equal(changed, true);
-    });
-  });
+  // describe("Change", function() {
+  //   it('should listen changes on store attribute', function() {
+  //     var changed = false;
+  //     store.change('country', function() {
+  //       changed = !changed;
+  //     });
+  //     store.path('country', 'us');
+  //     debugger
+  //     assert.equal(changed, true);
+  //   });
+
+  //   it('should listent changes on path', function() {
+  //     var changed = true;
+  //     store.change('country.')
+  //   });
+  // });
   
   
 });
