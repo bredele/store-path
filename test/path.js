@@ -31,8 +31,8 @@ describe("Path middleware", function() {
   
   describe("Setter", function() {
     it('should set store value from path', function() {
-      store.path('country.canada', 'amazing');
-      assert.equal(store.get('country').canada, 'amazing');
+      store.path('country.canada.city', 'calgary');
+      assert.equal(store.get('country').canada.city, 'calgary');
     });
   });
   
