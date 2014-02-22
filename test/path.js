@@ -17,7 +17,19 @@ describe("Path middleware", function() {
     it("should have change handler", function() {
       assert.equal(typeof store.change, 'function');      
     });
-    
   });
+
+  describe("Getter", function() {
+    it('should get store value with path', function() {
+      store.reset({
+        country : {
+          canada : 'awesome'
+        }
+      });
+
+      assert.equal(store.path('country.canada'), 'awesome');
+    });
+  });
+  
   
 });
