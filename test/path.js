@@ -7,7 +7,8 @@ describe("Path middleware", function() {
   beforeEach(function() {
     store = new Store({
       country : {
-        canada : 'awesome'
+        france: 'paris',
+        canada : 'edmonton'
       }
     });
     store.use(path);
@@ -25,14 +26,18 @@ describe("Path middleware", function() {
 
   describe("Getter", function() {
     it('should get store value from path', function() {
-      assert.equal(store.path('country.canada'), 'awesome');
+      assert.equal(store.path('country.canada'), 'edmonton');
     });
   });
   
   describe("Setter", function() {
     it('should set store value from path', function() {
       store.path('country.canada.city', 'calgary');
-      assert.equal(store.get('country').canada.city, 'calgary');
+      store.path('country.france', 'strasbourg');
+
+      var country = store.get('country');
+      assert.equal(country.canada.city, 'calgary');
+      assert.equal(country.france, 'strasbourg');
     });
   });
   

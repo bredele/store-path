@@ -18,13 +18,16 @@ module.exports = function(store) {
 		} else {
 			var path = name.split('.'),
 					attr = clone(store.get(path[0])),
-					cache = null;
+					cache = attr;
 
-			for(var j = 1, h = path.length; j < h; j++) {
-				if(!attr[path[j]]) attr[path[j]] = {};
-				if((j+1) === h) attr[path[j]] = val;
+			for(var j = 1, h = path.length - 1; j < h; j++) {
+				var prop = path[j];
+				if(!cache.hasOwnProperty(prop) || (typeof cache[prop] !== 'object')) {
+					cache[prop] = {};
+				}
+				cache = cache[prop];
 			}
-			debugger
+			cache[path[h]] = val;
 			store.set(path[0], attr);
 		}
 	};
