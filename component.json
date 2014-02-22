@@ -4,8 +4,12 @@
   "description": "Store middleware to get/set and listen changes on path",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
-  "development": {},
+  "dependencies": {
+  },
+  "development": {
+    "bredele/store": "*",
+    "component/assert" : "*"    
+    },
   "license": "MIT",
   "main": "index.js",
   "scripts": [
