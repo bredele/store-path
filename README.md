@@ -28,7 +28,7 @@ Path is an elegant way to get nested data inside a store.
  Set a path `name` with data object.
 
 ```js
-store.set('country.canada,city','calgary');
+store.path('country.canada,city','calgary');
 ```
 
   Emits `change` event with `country, value, previous value`.<br>
@@ -38,8 +38,8 @@ store.set('country.canada,city','calgary');
 Path also work with arrays:
 
 ```js
-store.set('countries', ['france', 'canada']);
-store.set('countries.0', 'england');
+store.path('countries', ['france', 'canada']);
+store.path('countries.0', 'england');
 ```
 
 ### .path(name)
