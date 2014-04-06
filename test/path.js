@@ -1,5 +1,5 @@
 var path = require('store-path'),
-    Store = require('store'),
+    Store = require('datastore'),
     assert = require('assert');
 
 describe("Path middleware", function() {

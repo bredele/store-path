@@ -8,7 +8,7 @@
     "bredele/clone" : "*"
   },
   "development": {
-    "bredele/store": "*",
+    "bredele/datastore": "*",
     "component/assert" : "*"    
     },
   "license": "MIT",
