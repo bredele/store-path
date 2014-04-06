@@ -1,6 +1,6 @@
-var path = require('..');
-var Store = require('datastore');
-var assert = require('assert');
+var path = require('store-path'),
+    Store = require('datastore'),
+    assert = require('assert');
 
 describe("Path middleware", function() {
   var store = null;

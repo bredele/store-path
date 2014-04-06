@@ -25,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/bredele/store-path/issues"
   },
-  "homepage": "https://github.com/bredele/store-path"
+  "homepage": "https://github.com/bredele/store-path",
+  "devDependencies": {
+    "datastore": "^1.0.0",
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "bredele-clone": "^0.3.1"
+  }
 }
