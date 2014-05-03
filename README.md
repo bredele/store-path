@@ -1,7 +1,7 @@
 store-path
 ==========
 
-Store middleware to get and set path on [Store](http://github.com/bredele/store).
+Store middleware to get and set path on **[datastore](http://github.com/bredele/datastore)**.
 
 ## Installation
 
