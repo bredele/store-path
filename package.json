@@ -1,6 +1,6 @@
 {
   "name": "store-path",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Get nested properties in datastore",
   "main": "index.js",
   "directories": {

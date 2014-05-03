@@ -2,7 +2,7 @@
   "name": "store-path",
   "repo": "bredele/store-path",
   "description": "Store middleware to get/set and listen changes on path",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [],
   "dependencies": {
     "bredele/clone": "*"
