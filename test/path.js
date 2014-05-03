@@ -16,16 +16,15 @@ describe("Path middleware", function() {
   });
   
   describe("API", function() {
+    
     it("should have path handler", function() {
       assert.equal(typeof store.path, 'function');
     });
 
-    it("should have change handler", function() {
-      assert.equal(typeof store.change, 'function');      
-    });
   });
 
   describe("Getter", function() {
+
     it("should get store value", function() {
       assert.deepEqual(store.path('country'), {
         france: 'paris',
@@ -39,6 +38,7 @@ describe("Path middleware", function() {
   });
   
   describe("Setter", function() {
+
     it('should set store value', function() {
       store.path('country', 'england');
       assert.equal(store.get('country'), 'england');
@@ -49,10 +49,17 @@ describe("Path middleware", function() {
       store.path('country.france', 'strasbourg');
 
       var country = store.get('country');
-      debugger
       assert.equal(country.canada.city, 'calgary');
       assert.equal(country.france, 'strasbourg');
     });
+
+    // it('should set new attributes in store', function() {
+    //   store.path('mandatory.video', true);
+    //   assert.deepEqual(store.get('mandatory'), {
+    //     video: true
+    //   });
+    //   assert.equal(store.path('mandatory.video'), true);
+    // });
 
     it("should set array from path", function() {
       store.path('names.0', 'nicolas');
@@ -64,23 +71,6 @@ describe("Path middleware", function() {
     });
     
   });
-  
-  // describe("Change", function() {
-  //   it('should listen changes on store attribute', function() {
-  //     var changed = false;
-  //     store.change('country', function() {
-  //       changed = !changed;
-  //     });
-  //     store.path('country', 'us');
-  //     debugger
-  //     assert.equal(changed, true);
-  //   });
-
-  //   it('should listent changes on path', function() {
-  //     var changed = true;
-  //     store.change('country.')
-  //   });
-  // });
   
   
 });
