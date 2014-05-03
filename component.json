@@ -2,15 +2,15 @@
   "name": "store-path",
   "repo": "bredele/store-path",
   "description": "Store middleware to get/set and listen changes on path",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [],
   "dependencies": {
-    "bredele/clone" : "*"
+    "bredele/clone": "*"
   },
   "development": {
     "bredele/datastore": "*",
-    "component/assert" : "*"    
-    },
+    "component/assert": "*"
+  },
   "license": "MIT",
   "main": "index.js",
   "scripts": [
