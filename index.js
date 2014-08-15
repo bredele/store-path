@@ -19,17 +19,17 @@ module.exports = function(store) {
    *   store.path('country.canada'); //get
    *   store.path('country.canada', 'france');
    *   store.path('name.3.2', 'olivier'); //works with arrys
-   *   
-   * @param  {String} name 
-   * @param  {Any} val  
+   *
+   * @param  {String} name
+   * @param  {Any} val
    * @api public
    */
-  
+
   store.path = function(name, val) {
     var path = name.split('.'),
         attr = clone(store.get(path[0]));
 
-    if(!val) {
+    if(val == undefined) {
       for(var i = 1, l = path.length; i < l; i++) {
         attr = attr[path[i]];
       }
