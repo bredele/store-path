@@ -8,15 +8,16 @@ describe("Path middleware", function() {
     store = new Store({
       country : {
         france: 'paris',
-        canada : 'edmonton'
+        canada : 'edmonton',
+        ireland : 'dublin'
       },
       names: ['olivier', 'amy', ['jean', 'daniel']]
     });
     store.use(path);
   });
-  
+
   describe("API", function() {
-    
+
     it("should have path handler", function() {
       assert.equal(typeof store.path, 'function');
     });
@@ -28,15 +29,16 @@ describe("Path middleware", function() {
     it("should get store value", function() {
       assert.deepEqual(store.path('country'), {
         france: 'paris',
-        canada : 'edmonton'
+        canada : 'edmonton',
+        ireland: 'dublin'
       });
     });
-    
+
     it('should get store value from path', function() {
       assert.equal(store.path('country.canada'), 'edmonton');
     });
   });
-  
+
   describe("Setter", function() {
 
     it('should set store value', function() {
@@ -47,10 +49,12 @@ describe("Path middleware", function() {
     it('should set store value from path', function() {
       store.path('country.canada.city', 'calgary');
       store.path('country.france', 'strasbourg');
+      store.path('country.ireland', '');
 
       var country = store.get('country');
       assert.equal(country.canada.city, 'calgary');
       assert.equal(country.france, 'strasbourg');
+      assert.equal(country.ireland, '');
     });
 
     // it('should set new attributes in store', function() {
@@ -69,8 +73,8 @@ describe("Path middleware", function() {
       assert.equal(names[0], 'nicolas');
       assert.equal(names[2][0], 'michelle');
     });
-    
+
   });
-  
-  
+
+
 });
